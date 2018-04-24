@@ -1,13 +1,12 @@
-var indexRouter = require('../controller/index');
-var usersRouter = require('../controller/users');
-var pay = require('../controller/pay');
+import indexRouter from '../router/index'
+import payRouter from '../router/pay'
+import qrcodeRouter from '../router/qrcode'
 
-function web() {}
-
-web.prototype.init = function(app) {
-    app.use('/', indexRouter);
-    app.use('/users', usersRouter);
-    app.use('/pay', pay);
+export default class Web {
+    constructor(app) {
+        this.app = app
+        this.app.use('/', indexRouter)
+        this.app.use('/qrcode', qrcodeRouter)
+        this.app.use('/pay', payRouter)
+    }
 }
-
-module.exports = web;
