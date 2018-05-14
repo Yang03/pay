@@ -17,4 +17,18 @@ connection.then( db => {
     }  
 })
 
+// const connectToDb = async() => {
+//     try {
+//         await mongoose.connect(config.DB_URL)
+//         mongoose.connect(config.DB_URL)
+//     } catch(err) {
+//         if (err.message.code === 'ETIMEDOUT') {
+//             console.log('Attempting to re-establish database connection')
+//             mongoose.connect(config.DB_URL)
+//         } else {
+//             console.log('Error while attempting to connect to database')
+//         }  
+//     }
+// }
+
 export default connection

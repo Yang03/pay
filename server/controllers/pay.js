@@ -36,3 +36,7 @@ exports.payment = async function (req, res) {
         })
     }
 }
+
+exports.callback = (req, res) => {
+
+}

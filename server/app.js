@@ -10,7 +10,8 @@ import config from './config'
 
 const debug = Debug('app:server')
 const app = express()
-const logger = morgan('combined')
+
+app.use(morgan('dev'))
 // view engine setup
 app.set('views', path.join(__dirname, '../views'))
 app.set('view engine', 'pug')
@@ -44,7 +45,6 @@ app.use(function (err, req, res, next) {
     res.render('error')
 })
 
-console.log(config.PORT)
 const port = config.PORT || 8005
 app.listen(port, err => {
     if (err) {

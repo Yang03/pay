@@ -10,7 +10,6 @@ Api.qrOrder = async function(order) {
     order.setSign()
     let data = order.toBodyParams()
     const result = await request.post(url, data)
-    console.log(result.data)
     return result.data
 }
 export default Api
