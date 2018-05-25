@@ -73,6 +73,9 @@ export default class payOrder {
         this.bodyValues['sign'] = sign
         return sign
     }
+    getSign() {
+        return this.bodyValues['sign']
+    }
     makeSign() {
         let values = ksort(this.bodyValues)
         let queryParams = queryString.stringify(values)
@@ -89,8 +92,10 @@ export default class payOrder {
         return `appid=${appId}&appsecret=${apiPassword}`
     }
     toBodyParams() {
-        let temp = this.bodyValues
-        return temp
+        return this.bodyValues
+    }
+    fromArray(arr) {
+        this.bodyValues = arr
     }
 
 }

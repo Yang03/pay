@@ -38,5 +38,24 @@ exports.payment = async function (req, res) {
 }
 
 exports.callback = (req, res) => {
-
+    // pay_result 
+    // out_trade_no
+    // total_fee
+    // pay_channel
+    // third_order_no
+    // transaction_id
+    //sign
+    const params = req.body
+    let order = new payOrder()
+    order.fromArray(params)
+    order.setSign()
+    const signStr = order.getSign()
+    if (signStr === req.body.sign) {
+        //TODO
+    } else {
+        return res.json({
+            code: 1,
+            message: req.body['pay_result']
+        })
+    }
 }

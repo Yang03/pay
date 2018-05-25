@@ -7,6 +7,7 @@ import http from 'http'
 import Debug from 'debug'
 import fs from 'fs'
 import config from './config'
+import Logger from './util/logger'
 
 const debug = Debug('app:server')
 const app = express()
@@ -46,15 +47,14 @@ app.use(function (err, req, res, next) {
 })
 
 const port = config.PORT || 8005
+
 app.listen(port, err => {
     if (err) {
-        console.log(err)
+        Logger.log(err)
         process.exit(1)
     }
     // connect db
     require('./db')
-    console.log(
-		`server is now running on port ${port}`
-	)
+    Logger.log(`server is now running on port ${port}`)
 })
 export default app

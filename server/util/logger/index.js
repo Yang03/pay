@@ -2,7 +2,7 @@
 let logger
 
 if (process.env !== 'production') {
-    logger = consele
+    logger = console
 } else {
 
 }
